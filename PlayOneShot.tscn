@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://20wd3kw3e8vd"]
+
+[ext_resource type="Script" path="res://PlayOneShot.cs" id="1_imeea"]
+
+[node name="PlayOneShot" type="AudioStreamPlayer"]
+script = ExtResource("1_imeea")

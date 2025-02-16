@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8mfhg81wnana"]
+
+[ext_resource type="Script" path="res://RootFinder.cs" id="1_xldx8"]
+[ext_resource type="Script" path="res://LevelSelect.cs" id="2_xhudo"]
+[ext_resource type="Texture2D" uid="uid://j3b5c1wq1r5e" path="res://wall.png" id="3_jsnjv"]
+[ext_resource type="Texture2D" uid="uid://07j4cyssdcfg" path="res://net.png" id="4_pyefl"]
+[ext_resource type="Texture2D" uid="uid://cd1nlnlrcmlx8" path="res://gate.png" id="5_247gm"]
+[ext_resource type="Texture2D" uid="uid://co41gibmtikdc" path="res://grate.png" id="6_xb2qu"]
+[ext_resource type="Texture2D" uid="uid://cow4y5c6e46qh" path="res://boost.png" id="7_p4f7s"]
+[ext_resource type="Texture2D" uid="uid://bil3vaxkbk3c0" path="res://bg.png" id="8_04l4x"]
+[ext_resource type="PackedScene" uid="uid://ce24xxb8je1hp" path="res://bouncer.tscn" id="9_bu81v"]
+
+[node name="LevelSelect" type="Node2D"]
+texture_filter = 1
+
+[node name="Root Finder" type="Node" parent="."]
+script = ExtResource("1_xldx8")
+
+[node name="MenuLogic" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_xhudo")
+wallTex = [null, ExtResource("3_jsnjv"), ExtResource("4_pyefl"), ExtResource("5_247gm"), ExtResource("6_xb2qu"), ExtResource("7_p4f7s")]
+sprite = NodePath("../Transform/Photo Border/Bright/Stadium Photo")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+position = Vector2(256, 144)
+scale = Vector2(2, 2)
+texture = ExtResource("8_04l4x")
+
+[node name="Transform" type="Node2D" parent="."]
+position = Vector2(256, 144)
+rotation = 0.0436332
+scale = Vector2(0.75, 0.75)
+
+[node name="Photo Border" type="Polygon2D" parent="Transform"]
+position = Vector2(-256, -144)
+color = Color(0.384314, 0.384314, 0.384314, 1)
+polygon = PackedVector2Array(0, 0, 528, 0, 528, 304, 0, 304)
+
+[node name="Bright" type="Polygon2D" parent="Transform/Photo Border"]
+polygon = PackedVector2Array(-8, -8, 520, -8, 520, 296, -8, 296)
+
+[node name="Stadium Photo" type="Sprite2D" parent="Transform/Photo Border/Bright"]
+centered = false
+
+[node name="Bouncer" parent="." instance=ExtResource("9_bu81v")]
+modulate = Color(0.258824, 0.258824, 0.258824, 1)
+position = Vector2(256, 32)
+
+[node name="Bouncer2" parent="." instance=ExtResource("9_bu81v")]
+modulate = Color(0.258824, 0.258824, 0.258824, 1)
+position = Vector2(256, 256)
+rotation = 3.14159

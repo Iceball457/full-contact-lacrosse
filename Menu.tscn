@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq0cien12q226"]
+
+[ext_resource type="Script" path="res://Menu.cs" id="1_3oc67"]
+[ext_resource type="Texture2D" uid="uid://cx50kgqyft426" path="res://menu.png" id="1_uow5y"]
+[ext_resource type="Script" path="res://RootFinder.cs" id="1_wmxa0"]
+
+[node name="Menu" type="Node2D" node_paths=PackedStringArray("pointerDisplay")]
+script = ExtResource("1_3oc67")
+pointerOffset = 120.0
+itemHeight = 35.0
+pointerDisplay = NodePath("Polygon2D")
+
+[node name="Root Finder" type="Node" parent="."]
+script = ExtResource("1_wmxa0")
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(256, 144)
+scale = Vector2(2, 2)
+texture = ExtResource("1_uow5y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_top = 104.0
+offset_right = 512.0
+offset_bottom = 288.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Local Match
+Online Match [TDB]
+Export Custom Stage Template
+Exit Game"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, 120)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(40, -8, 64, 0, 40, 8)

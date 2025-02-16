@@ -1,0 +1,713 @@
+[gd_scene load_steps=11 format=3 uid="uid://be70jah2uh6eh"]
+
+[ext_resource type="Script" path="res://Stadium.cs" id="1_ad0ij"]
+[ext_resource type="PackedScene" uid="uid://xtdmcqxbiye6" path="res://game_input.tscn" id="1_qxdw6"]
+[ext_resource type="Texture2D" uid="uid://07j4cyssdcfg" path="res://net.png" id="3_7ptpk"]
+[ext_resource type="Texture2D" uid="uid://co41gibmtikdc" path="res://grate.png" id="4_i2vcm"]
+[ext_resource type="PackedScene" uid="uid://dsvx83548grc7" path="res://ScoreZone.tscn" id="5_6elw2"]
+[ext_resource type="Texture2D" uid="uid://cd1nlnlrcmlx8" path="res://gate.png" id="5_8ss2p"]
+[ext_resource type="Texture2D" uid="uid://bil3vaxkbk3c0" path="res://bg.png" id="6_70w53"]
+[ext_resource type="Texture2D" uid="uid://j3b5c1wq1r5e" path="res://wall.png" id="6_qod7i"]
+[ext_resource type="Texture2D" uid="uid://cow4y5c6e46qh" path="res://boost.png" id="7_eexgj"]
+[ext_resource type="PackedScene" uid="uid://d3850c80bs365" path="res://Puck.tscn" id="10_pjh5a"]
+
+[node name="Stadium" type="Node2D"]
+z_index = 2
+texture_filter = 1
+script = ExtResource("1_ad0ij")
+wallTex = [null, ExtResource("6_qod7i"), ExtResource("3_7ptpk"), ExtResource("5_8ss2p"), ExtResource("4_i2vcm"), ExtResource("7_eexgj")]
+
+[node name="Game Input" parent="." instance=ExtResource("1_qxdw6")]
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -100
+texture_filter = 1
+position = Vector2(256, 144)
+scale = Vector2(2, 2)
+texture = ExtResource("6_70w53")
+
+[node name="Example" type="Node2D" parent="."]
+
+[node name="Net" type="Sprite2D" parent="Example"]
+position = Vector2(-280, 472)
+texture = ExtResource("3_7ptpk")
+
+[node name="Net2" type="Sprite2D" parent="Example"]
+position = Vector2(-280, 488)
+texture = ExtResource("3_7ptpk")
+
+[node name="Net3" type="Sprite2D" parent="Example"]
+position = Vector2(-280, 456)
+texture = ExtResource("3_7ptpk")
+
+[node name="Net4" type="Sprite2D" parent="Example"]
+position = Vector2(-280, 440)
+texture = ExtResource("3_7ptpk")
+
+[node name="Grate" type="Sprite2D" parent="Example"]
+position = Vector2(-248, 360)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate2" type="Sprite2D" parent="Example"]
+position = Vector2(-248, 344)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate3" type="Sprite2D" parent="Example"]
+position = Vector2(-248, 328)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate10" type="Sprite2D" parent="Example"]
+position = Vector2(-232, 360)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate11" type="Sprite2D" parent="Example"]
+position = Vector2(-232, 344)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate12" type="Sprite2D" parent="Example"]
+position = Vector2(-232, 328)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate4" type="Sprite2D" parent="Example"]
+position = Vector2(-312, 360)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate5" type="Sprite2D" parent="Example"]
+position = Vector2(-312, 344)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate6" type="Sprite2D" parent="Example"]
+position = Vector2(-312, 328)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate7" type="Sprite2D" parent="Example"]
+position = Vector2(-328, 360)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate8" type="Sprite2D" parent="Example"]
+position = Vector2(-328, 344)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate9" type="Sprite2D" parent="Example"]
+position = Vector2(-328, 328)
+texture = ExtResource("4_i2vcm")
+
+[node name="Gate" type="Sprite2D" parent="Example"]
+position = Vector2(-56, 456)
+texture = ExtResource("5_8ss2p")
+
+[node name="Gate4" type="Sprite2D" parent="Example"]
+position = Vector2(-56, 440)
+texture = ExtResource("5_8ss2p")
+
+[node name="Gate2" type="Sprite2D" parent="Example"]
+position = Vector2(-120, 472)
+texture = ExtResource("5_8ss2p")
+
+[node name="Gate3" type="Sprite2D" parent="Example"]
+position = Vector2(-120, 488)
+texture = ExtResource("5_8ss2p")
+
+[node name="Wall" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall2" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 488)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall3" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 472)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall4" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 456)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall5" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall6" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 488)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall7" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 472)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall8" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 456)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall9" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall11" type="Sprite2D" parent="Example"]
+position = Vector2(-296, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall12" type="Sprite2D" parent="Example"]
+position = Vector2(-280, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall13" type="Sprite2D" parent="Example"]
+position = Vector2(-264, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall14" type="Sprite2D" parent="Example"]
+position = Vector2(-296, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall15" type="Sprite2D" parent="Example"]
+position = Vector2(-280, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall16" type="Sprite2D" parent="Example"]
+position = Vector2(-264, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall17" type="Sprite2D" parent="Example"]
+position = Vector2(-248, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall18" type="Sprite2D" parent="Example"]
+position = Vector2(-232, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall19" type="Sprite2D" parent="Example"]
+position = Vector2(-216, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall20" type="Sprite2D" parent="Example"]
+position = Vector2(-248, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall21" type="Sprite2D" parent="Example"]
+position = Vector2(-232, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall22" type="Sprite2D" parent="Example"]
+position = Vector2(-216, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall23" type="Sprite2D" parent="Example"]
+position = Vector2(-344, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall24" type="Sprite2D" parent="Example"]
+position = Vector2(-328, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall25" type="Sprite2D" parent="Example"]
+position = Vector2(-312, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall26" type="Sprite2D" parent="Example"]
+position = Vector2(-344, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall27" type="Sprite2D" parent="Example"]
+position = Vector2(-328, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall28" type="Sprite2D" parent="Example"]
+position = Vector2(-312, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall10" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall57" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall58" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 488)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall59" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 472)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall60" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 456)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall61" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall62" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 488)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall63" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 472)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall64" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 456)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall113" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 440)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall114" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 440)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall115" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 440)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall116" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 440)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall65" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall66" type="Sprite2D" parent="Example"]
+position = Vector2(-104, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall67" type="Sprite2D" parent="Example"]
+position = Vector2(-88, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall68" type="Sprite2D" parent="Example"]
+position = Vector2(-72, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall69" type="Sprite2D" parent="Example"]
+position = Vector2(-104, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall70" type="Sprite2D" parent="Example"]
+position = Vector2(-88, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall71" type="Sprite2D" parent="Example"]
+position = Vector2(-72, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall72" type="Sprite2D" parent="Example"]
+position = Vector2(-56, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall73" type="Sprite2D" parent="Example"]
+position = Vector2(-40, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall74" type="Sprite2D" parent="Example"]
+position = Vector2(-24, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall75" type="Sprite2D" parent="Example"]
+position = Vector2(-56, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall76" type="Sprite2D" parent="Example"]
+position = Vector2(-40, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall77" type="Sprite2D" parent="Example"]
+position = Vector2(-24, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall78" type="Sprite2D" parent="Example"]
+position = Vector2(-152, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall79" type="Sprite2D" parent="Example"]
+position = Vector2(-136, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall80" type="Sprite2D" parent="Example"]
+position = Vector2(-120, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall81" type="Sprite2D" parent="Example"]
+position = Vector2(-152, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall82" type="Sprite2D" parent="Example"]
+position = Vector2(-136, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall83" type="Sprite2D" parent="Example"]
+position = Vector2(-120, 504)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall84" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 424)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall85" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall86" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 360)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall87" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 344)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall88" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 328)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall89" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall90" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 360)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall91" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 344)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall92" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 328)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall93" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall94" type="Sprite2D" parent="Example"]
+position = Vector2(-104, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall95" type="Sprite2D" parent="Example"]
+position = Vector2(-88, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall96" type="Sprite2D" parent="Example"]
+position = Vector2(-72, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall97" type="Sprite2D" parent="Example"]
+position = Vector2(-104, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall98" type="Sprite2D" parent="Example"]
+position = Vector2(-88, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall99" type="Sprite2D" parent="Example"]
+position = Vector2(-72, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall100" type="Sprite2D" parent="Example"]
+position = Vector2(-56, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall101" type="Sprite2D" parent="Example"]
+position = Vector2(-40, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall102" type="Sprite2D" parent="Example"]
+position = Vector2(-24, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall103" type="Sprite2D" parent="Example"]
+position = Vector2(-56, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall104" type="Sprite2D" parent="Example"]
+position = Vector2(-40, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall105" type="Sprite2D" parent="Example"]
+position = Vector2(-24, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall106" type="Sprite2D" parent="Example"]
+position = Vector2(-152, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall107" type="Sprite2D" parent="Example"]
+position = Vector2(-136, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall108" type="Sprite2D" parent="Example"]
+position = Vector2(-120, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall109" type="Sprite2D" parent="Example"]
+position = Vector2(-152, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall110" type="Sprite2D" parent="Example"]
+position = Vector2(-136, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall111" type="Sprite2D" parent="Example"]
+position = Vector2(-120, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall112" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall29" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall30" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 360)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall31" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 344)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall32" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 328)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall33" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall34" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 360)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall35" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 344)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall36" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 328)
+texture = ExtResource("6_qod7i")
+
+[node name="Grate13" type="Sprite2D" parent="Example"]
+position = Vector2(-248, 312)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate14" type="Sprite2D" parent="Example"]
+position = Vector2(-232, 312)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate15" type="Sprite2D" parent="Example"]
+position = Vector2(-312, 312)
+texture = ExtResource("4_i2vcm")
+
+[node name="Grate16" type="Sprite2D" parent="Example"]
+position = Vector2(-328, 312)
+texture = ExtResource("4_i2vcm")
+
+[node name="Wall117" type="Sprite2D" parent="Example"]
+position = Vector2(-168, 312)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall118" type="Sprite2D" parent="Example"]
+position = Vector2(-8, 312)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall119" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 312)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall120" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 312)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall37" type="Sprite2D" parent="Example"]
+position = Vector2(-360, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall38" type="Sprite2D" parent="Example"]
+position = Vector2(-296, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall39" type="Sprite2D" parent="Example"]
+position = Vector2(-280, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall40" type="Sprite2D" parent="Example"]
+position = Vector2(-264, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall41" type="Sprite2D" parent="Example"]
+position = Vector2(-296, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall42" type="Sprite2D" parent="Example"]
+position = Vector2(-280, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall43" type="Sprite2D" parent="Example"]
+position = Vector2(-264, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall44" type="Sprite2D" parent="Example"]
+position = Vector2(-248, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall45" type="Sprite2D" parent="Example"]
+position = Vector2(-232, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall46" type="Sprite2D" parent="Example"]
+position = Vector2(-216, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall47" type="Sprite2D" parent="Example"]
+position = Vector2(-248, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall48" type="Sprite2D" parent="Example"]
+position = Vector2(-232, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall49" type="Sprite2D" parent="Example"]
+position = Vector2(-216, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall50" type="Sprite2D" parent="Example"]
+position = Vector2(-344, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall51" type="Sprite2D" parent="Example"]
+position = Vector2(-328, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall52" type="Sprite2D" parent="Example"]
+position = Vector2(-312, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall53" type="Sprite2D" parent="Example"]
+position = Vector2(-344, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall54" type="Sprite2D" parent="Example"]
+position = Vector2(-328, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall55" type="Sprite2D" parent="Example"]
+position = Vector2(-312, 376)
+texture = ExtResource("6_qod7i")
+
+[node name="Wall56" type="Sprite2D" parent="Example"]
+position = Vector2(-200, 296)
+texture = ExtResource("6_qod7i")
+
+[node name="Boost" type="Sprite2D" parent="Example"]
+position = Vector2(-120, 360)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost2" type="Sprite2D" parent="Example"]
+position = Vector2(-56, 360)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost3" type="Sprite2D" parent="Example"]
+position = Vector2(-72, 360)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost4" type="Sprite2D" parent="Example"]
+position = Vector2(-88, 360)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost5" type="Sprite2D" parent="Example"]
+position = Vector2(-104, 360)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost6" type="Sprite2D" parent="Example"]
+position = Vector2(-120, 312)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost7" type="Sprite2D" parent="Example"]
+position = Vector2(-56, 312)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost8" type="Sprite2D" parent="Example"]
+position = Vector2(-72, 312)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost9" type="Sprite2D" parent="Example"]
+position = Vector2(-88, 312)
+texture = ExtResource("7_eexgj")
+
+[node name="Boost10" type="Sprite2D" parent="Example"]
+position = Vector2(-104, 312)
+texture = ExtResource("7_eexgj")
+
+[node name="ScoreZone" parent="Example" instance=ExtResource("5_6elw2")]
+modulate = Color(0.968627, 0.807843, 0, 1)
+position = Vector2(-160, 464)
+
+[node name="ScoreZone2" parent="Example" instance=ExtResource("5_6elw2")]
+modulate = Color(0.34902, 0.698039, 1, 1)
+position = Vector2(-48, 432)
+
+[node name="ScoreZone3" parent="Example" instance=ExtResource("5_6elw2")]
+modulate = Color(0.968627, 0.807843, 0, 1)
+position = Vector2(-352, 336)
+
+[node name="ScoreZone4" parent="Example" instance=ExtResource("5_6elw2")]
+modulate = Color(0.968627, 0.807843, 0, 1)
+position = Vector2(-352, 304)
+
+[node name="ScoreZone5" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.34902, 0.698039, 1, 1)
+position = Vector2(-240, 336)
+sliders = [NodePath("../ScoreZone3/Slider")]
+
+[node name="ScoreZone6" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.34902, 0.698039, 1, 1)
+position = Vector2(-240, 304)
+sliders = [NodePath("../ScoreZone4/Slider")]
+
+[node name="ScoreZone7" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.968627, 0.807843, 0, 1)
+position = Vector2(-160, 336)
+sliders = [NodePath("../ScoreZone3/Slider")]
+
+[node name="ScoreZone8" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.968627, 0.807843, 0, 1)
+position = Vector2(-160, 304)
+sliders = [NodePath("../ScoreZone4/Slider")]
+
+[node name="ScoreZone9" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.34902, 0.698039, 1, 1)
+position = Vector2(-48, 336)
+sliders = [NodePath("../ScoreZone3/Slider")]
+
+[node name="ScoreZone10" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.34902, 0.698039, 1, 1)
+position = Vector2(-48, 304)
+sliders = [NodePath("../ScoreZone4/Slider")]
+
+[node name="ScoreZone11" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.968627, 0.807843, 0, 1)
+position = Vector2(-352, 464)
+sliders = [NodePath("../ScoreZone3/Slider")]
+
+[node name="ScoreZone12" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.968627, 0.807843, 0, 1)
+position = Vector2(-352, 432)
+sliders = [NodePath("../ScoreZone4/Slider")]
+
+[node name="ScoreZone13" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.34902, 0.698039, 1, 1)
+position = Vector2(-240, 464)
+sliders = [NodePath("../ScoreZone3/Slider")]
+
+[node name="ScoreZone14" parent="Example" node_paths=PackedStringArray("sliders") instance=ExtResource("5_6elw2")]
+modulate = Color(0.34902, 0.698039, 1, 1)
+position = Vector2(-240, 432)
+sliders = [NodePath("../ScoreZone4/Slider")]
+
+[node name="Puck" parent="." instance=ExtResource("10_pjh5a")]

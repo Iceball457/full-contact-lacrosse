@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://r2wal1xnhtx0"]
+
+[ext_resource type="Script" path="res://RootFinder.cs" id="1_ilcan"]
+[ext_resource type="Script" path="res://LocalControllerSetup.cs" id="1_ok1l4"]
+[ext_resource type="Texture2D" uid="uid://bil3vaxkbk3c0" path="res://bg.png" id="2_a2g3e"]
+[ext_resource type="Script" path="res://TeamVertexColor.cs" id="3_l3ih0"]
+[ext_resource type="PackedScene" uid="uid://dxlafprw88lf1" path="res://controller_indicator.tscn" id="4_a8ts0"]
+
+[node name="Local Controller Setup" type="Node2D" node_paths=PackedStringArray("indicators")]
+texture_filter = 1
+script = ExtResource("1_ok1l4")
+indicators = [NodePath("Controller Indicator"), NodePath("Controller Indicator2"), NodePath("Controller Indicator3"), NodePath("Controller Indicator4")]
+
+[node name="Root Finder" type="Node" parent="."]
+script = ExtResource("1_ilcan")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+position = Vector2(256, 144)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a2g3e")
+
+[node name="Cooler Angle Thing" type="Node2D" parent="."]
+script = ExtResource("3_l3ih0")
+
+[node name="Controller Indicator" parent="." instance=ExtResource("4_a8ts0")]
+visible = false
+position = Vector2(224, 56)
+deviceIdx = -1
+
+[node name="Controller Indicator2" parent="." instance=ExtResource("4_a8ts0")]
+visible = false
+position = Vector2(240, 112)
+deviceIdx = -1
+
+[node name="Controller Indicator3" parent="." instance=ExtResource("4_a8ts0")]
+visible = false
+position = Vector2(264, 168)
+deviceIdx = -1
+
+[node name="Controller Indicator4" parent="." instance=ExtResource("4_a8ts0")]
+visible = false
+position = Vector2(288, 224)
+deviceIdx = -1

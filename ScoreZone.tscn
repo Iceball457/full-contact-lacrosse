@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsvx83548grc7"]
+
+[ext_resource type="Script" path="res://ScoreZone.cs" id="1_20j0f"]
+[ext_resource type="Script" path="res://Slider.cs" id="1_nir8a"]
+
+[node name="ScoreZone" type="Node2D" node_paths=PackedStringArray("sliders")]
+z_index = -1
+script = ExtResource("1_20j0f")
+sliders = [NodePath("Slider")]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
+
+[node name="Slider" type="Node2D" parent="."]
+script = ExtResource("1_nir8a")

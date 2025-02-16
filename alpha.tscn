@@ -1,0 +1,356 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2hm8tomo8gxw"]
+
+[ext_resource type="PackedScene" uid="uid://bi1qq7nyxwe33" path="res://Player.tscn" id="1_t4kb7"]
+[ext_resource type="PackedScene" uid="uid://xtdmcqxbiye6" path="res://game_input.tscn" id="1_tpgw8"]
+[ext_resource type="PackedScene" uid="uid://cyftutt3ypydp" path="res://wall.tscn" id="4_gumfe"]
+[ext_resource type="PackedScene" uid="uid://d3850c80bs365" path="res://Puck.tscn" id="5_kr886"]
+[ext_resource type="PackedScene" uid="uid://dsvx83548grc7" path="res://ScoreZone.tscn" id="5_m10w7"]
+[ext_resource type="Texture2D" uid="uid://bil3vaxkbk3c0" path="res://bg.png" id="7_vlbnc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Game Input" parent="." instance=ExtResource("1_tpgw8")]
+
+[node name="Player" parent="." instance=ExtResource("1_t4kb7")]
+modulate = Color(0.780392, 0.494118, 0, 1)
+texture_filter = 1
+DeviceIdx = 2
+
+[node name="Player3" parent="." instance=ExtResource("1_t4kb7")]
+modulate = Color(1, 0.694118, 0.168627, 1)
+texture_filter = 1
+
+[node name="Player4" parent="." instance=ExtResource("1_t4kb7")]
+modulate = Color(0.278431, 0.760784, 1, 1)
+texture_filter = 1
+DeviceIdx = 1
+
+[node name="Player2" parent="." instance=ExtResource("1_t4kb7")]
+modulate = Color(0, 0.494118, 0.741176, 1)
+texture_filter = 1
+DeviceIdx = 3
+
+[node name="Wall" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(32, 0)
+
+[node name="Wall2" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(16, 0)
+
+[node name="Wall3" parent="." instance=ExtResource("4_gumfe")]
+
+[node name="Wall4" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 16)
+
+[node name="Wall5" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 32)
+
+[node name="Wall6" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 48)
+
+[node name="Wall7" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 64)
+
+[node name="Wall8" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 80)
+
+[node name="Wall9" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 96)
+
+[node name="Wall10" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 112)
+
+[node name="Wall11" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 128)
+
+[node name="Wall12" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 144)
+
+[node name="Wall13" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 160)
+
+[node name="Wall14" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 176)
+
+[node name="Wall15" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 192)
+
+[node name="Wall16" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 208)
+
+[node name="Wall17" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 224)
+
+[node name="Wall18" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 240)
+
+[node name="Wall19" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 256)
+
+[node name="Wall20" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(0, 272)
+
+[node name="Wall81" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 16)
+
+[node name="Wall82" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 32)
+
+[node name="Wall83" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 48)
+
+[node name="Wall84" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 64)
+
+[node name="Wall85" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 80)
+
+[node name="Wall86" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 96)
+
+[node name="Wall87" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 112)
+
+[node name="Wall88" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 128)
+
+[node name="Wall89" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 144)
+
+[node name="Wall90" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 160)
+
+[node name="Wall91" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 176)
+
+[node name="Wall92" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 192)
+
+[node name="Wall93" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 208)
+
+[node name="Wall94" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 224)
+
+[node name="Wall95" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 240)
+
+[node name="Wall96" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 256)
+
+[node name="Wall21" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(16, 272)
+
+[node name="Wall22" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(32, 272)
+
+[node name="Wall23" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(48, 272)
+
+[node name="Wall24" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(64, 272)
+
+[node name="Wall25" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(80, 272)
+
+[node name="Wall26" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(96, 272)
+
+[node name="Wall27" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(112, 272)
+
+[node name="Wall28" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(128, 272)
+
+[node name="Wall29" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(144, 272)
+
+[node name="Wall30" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(160, 272)
+
+[node name="Wall31" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(176, 272)
+
+[node name="Wall32" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(192, 272)
+
+[node name="Wall33" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(208, 272)
+
+[node name="Wall34" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(224, 272)
+
+[node name="Wall35" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(240, 272)
+
+[node name="Wall36" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(256, 272)
+
+[node name="Wall37" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(272, 272)
+
+[node name="Wall38" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(288, 272)
+
+[node name="Wall39" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(304, 272)
+
+[node name="Wall40" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(320, 272)
+
+[node name="Wall41" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(336, 272)
+
+[node name="Wall42" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(352, 272)
+
+[node name="Wall43" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(368, 272)
+
+[node name="Wall44" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(384, 272)
+
+[node name="Wall45" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(400, 272)
+
+[node name="Wall46" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(416, 272)
+
+[node name="Wall47" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(432, 272)
+
+[node name="Wall48" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(448, 272)
+
+[node name="Wall49" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(464, 272)
+
+[node name="Wall50" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(480, 272)
+
+[node name="Wall51" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 272)
+
+[node name="Wall52" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(48, 0)
+
+[node name="Wall53" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(64, 0)
+
+[node name="Wall54" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(80, 0)
+
+[node name="Wall55" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(96, 0)
+
+[node name="Wall56" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(112, 0)
+
+[node name="Wall57" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(128, 0)
+
+[node name="Wall58" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(144, 0)
+
+[node name="Wall59" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(160, 0)
+
+[node name="Wall60" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(176, 0)
+
+[node name="Wall61" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(192, 0)
+
+[node name="Wall62" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(208, 0)
+
+[node name="Wall63" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(224, 0)
+
+[node name="Wall64" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(240, 0)
+
+[node name="Wall65" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(256, 0)
+
+[node name="Wall66" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(272, 0)
+
+[node name="Wall67" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(288, 0)
+
+[node name="Wall68" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(304, 0)
+
+[node name="Wall69" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(320, 0)
+
+[node name="Wall70" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(336, 0)
+
+[node name="Wall71" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(352, 0)
+
+[node name="Wall72" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(368, 0)
+
+[node name="Wall73" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(384, 0)
+
+[node name="Wall74" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(400, 0)
+
+[node name="Wall75" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(416, 0)
+
+[node name="Wall76" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(432, 0)
+
+[node name="Wall77" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(448, 0)
+
+[node name="Wall78" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(464, 0)
+
+[node name="Wall79" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(480, 0)
+
+[node name="Wall80" parent="." instance=ExtResource("4_gumfe")]
+position = Vector2(496, 0)
+
+[node name="Puck" parent="." instance=ExtResource("5_kr886")]
+
+[node name="ScoreZone38" parent="." node_paths=PackedStringArray("sliders") instance=ExtResource("5_m10w7")]
+modulate = Color(0.278431, 0.760784, 1, 1)
+position = Vector2(48, 240)
+sliders = [null]
+
+[node name="ScoreZone41" parent="." node_paths=PackedStringArray("sliders") instance=ExtResource("5_m10w7")]
+modulate = Color(0.278431, 0.760784, 1, 1)
+position = Vector2(208, 208)
+sliders = [null]
+
+[node name="ScoreZone72" parent="." node_paths=PackedStringArray("sliders") instance=ExtResource("5_m10w7")]
+modulate = Color(1, 0.694118, 0.168627, 1)
+position = Vector2(400, 144)
+Team1 = true
+sliders = [null]
+
+[node name="ScoreZone91" parent="." node_paths=PackedStringArray("sliders") instance=ExtResource("5_m10w7")]
+modulate = Color(1, 0.694118, 0.168627, 1)
+position = Vector2(400, 112)
+Team1 = true
+sliders = [null]
+
+[node name="Bg" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+texture_filter = 1
+position = Vector2(256, 144)
+scale = Vector2(2, 2)
+texture = ExtResource("7_vlbnc")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+position = Vector2(320, 112)
+color = Color(0.08, 0.08, 0.08, 1)
+offset = Vector2(-8, -8)
+polygon = PackedVector2Array(0, 0, 16, 0, 16, 16, 0, 16)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bxaefy401gvl0"]
+
+[node name="Multiplayer Scene" type="Node"]
+
+[node name="Level" type="Node" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Stadium.tscn")
+spawn_path = NodePath("../Level")
+spawn_limit = 1

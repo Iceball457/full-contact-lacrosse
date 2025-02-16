@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxlafprw88lf1"]
+
+[ext_resource type="Texture2D" uid="uid://cehq142lguyfg" path="res://controller.png" id="1_5w3vb"]
+[ext_resource type="Script" path="res://ControllerIndicator.cs" id="1_nx14k"]
+[ext_resource type="Texture2D" uid="uid://brvr4og33x31n" path="res://numbers.png" id="2_hggip"]
+[ext_resource type="Texture2D" uid="uid://b5dtirrh5e15w" path="res://tackler.png" id="4_fh0fk"]
+[ext_resource type="Texture2D" uid="uid://br5gmolyyd0id" path="res://runner.png" id="5_0efy5"]
+[ext_resource type="Texture2D" uid="uid://dnd7gi8q8r3df" path="res://thrower.png" id="6_jp66x"]
+[ext_resource type="PackedScene" uid="uid://ce24xxb8je1hp" path="res://bouncer.tscn" id="7_u6pp1"]
+
+[node name="Controller Indicator" type="Node2D" node_paths=PackedStringArray("number", "offset", "roleSelector", "readyBanner", "roleSelectionGraphics", "bouncers")]
+script = ExtResource("1_nx14k")
+number = NodePath("Offset/Numbers")
+offset = NodePath("Offset")
+roleSelector = NodePath("Role Selector")
+readyBanner = NodePath("Ready Banner")
+roleSelectionGraphics = [NodePath("Role Selector/Thrower"), NodePath("Role Selector/Runner"), NodePath("Role Selector/Tackler")]
+bouncers = [NodePath("Role Selector/Bouncer"), NodePath("Role Selector/Bouncer2"), NodePath("Role Selector/Bouncer3"), NodePath("Role Selector/Bouncer4")]
+
+[node name="Ready Banner" type="Node2D" parent="."]
+visible = false
+
+[node name="Shade" type="Polygon2D" parent="Ready Banner"]
+color = Color(0.752941, 0.752941, 0.752941, 1)
+polygon = PackedVector2Array(-512, -28, 512, -28, 512, 28, -512, 28)
+
+[node name="Offset" type="Node2D" parent="."]
+
+[node name="Controller" type="Sprite2D" parent="Offset"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5w3vb")
+
+[node name="Numbers" type="Sprite2D" parent="Offset"]
+texture_filter = 1
+texture = ExtResource("2_hggip")
+offset = Vector2(0, -2)
+hframes = 2
+vframes = 2
+
+[node name="Role Selector" type="Node2D" parent="."]
+visible = false
+z_index = 4
+
+[node name="Tackler" type="Sprite2D" parent="Role Selector"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_fh0fk")
+
+[node name="Runner" type="Sprite2D" parent="Role Selector"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("5_0efy5")
+
+[node name="Thrower" type="Sprite2D" parent="Role Selector"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_jp66x")
+
+[node name="Bouncer" parent="Role Selector" instance=ExtResource("7_u6pp1")]
+position = Vector2(0, -24)
+
+[node name="Bouncer2" parent="Role Selector" instance=ExtResource("7_u6pp1")]
+position = Vector2(0, 24)
+rotation = 3.14159
+
+[node name="Bouncer3" parent="Role Selector" instance=ExtResource("7_u6pp1")]
+modulate = Color(0.188235, 0.188235, 0.188235, 1)
+position = Vector2(-24, 0)
+rotation = -1.5708
+
+[node name="Bouncer4" parent="Role Selector" instance=ExtResource("7_u6pp1")]
+modulate = Color(0.188235, 0.188235, 0.188235, 1)
+position = Vector2(24, 0)
+rotation = 1.5708

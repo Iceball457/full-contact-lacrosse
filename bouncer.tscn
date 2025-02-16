@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce24xxb8je1hp"]
+
+[ext_resource type="Script" path="res://Bouncer.cs" id="1_mm78a"]
+
+[node name="Bouncer" type="Node2D" node_paths=PackedStringArray("child")]
+script = ExtResource("1_mm78a")
+intensity = Vector2(0, -16)
+speed = 3.14
+child = NodePath("Transform")
+
+[node name="Transform" type="Node2D" parent="."]
+
+[node name="Polygon2D2" type="Polygon2D" parent="Transform"]
+color = Color(0.615686, 0.615686, 0.615686, 1)
+offset = Vector2(4, 2)
+polygon = PackedVector2Array(-16, 0, 0, -16, 16, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Transform"]
+polygon = PackedVector2Array(-16, 0, 0, -16, 16, 0)
