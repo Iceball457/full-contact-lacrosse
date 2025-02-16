@@ -4,6 +4,7 @@ using Godot;
 
 public partial class ControllerIndicator : Node2D {
     [Export] public int deviceIdx;
+    [Export] public bool isShared;
     [Export] Sprite2D number;
     [Export] Node2D offset;
     [Export] Node2D roleSelector;
@@ -209,7 +210,7 @@ public partial class ControllerIndicator : Node2D {
         }
         //roleSelector.Visible = false;
 
-        registeredPlayer = new(deviceIdx, team == -1, (PlayerRecord.Role)roleSelection);
+        registeredPlayer = new(deviceIdx, isShared, team == -1, (PlayerRecord.Role)roleSelection);
         GameManager.RegisterPlayer(registeredPlayer);
 
         state = ReadyState.Ready;

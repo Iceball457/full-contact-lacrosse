@@ -12,7 +12,13 @@ public partial class GameInput : Node {
         "Up",
         "Down",
         "Left",
-        "Right"
+        "Right",
+        "Select2",
+        "Cancel2",
+        "Up2",
+        "Down2",
+        "Left2",
+        "Right2"
     };
 
     public GameInput() {
@@ -22,15 +28,17 @@ public partial class GameInput : Node {
 
     public override void _Input(InputEvent @event) {
         foreach (string inputType in inputStrings) {
-            //Debug.WriteLine($"{@event.Device}");
-            if (@event.IsAction(inputType)) playerRegistry[@event.Device].Input(inputType, @event.GetActionStrength(inputType));
+            Debug.WriteLine($"{@event.Device}");
+            if (@event.IsAction(inputType)) playerRegistry[GetPlayerIndex(@event.Device, inputType.Contains("2"))].Input(inputType, @event.GetActionStrength(inputType));
             //if (@event.IsAction(inputType)) Debug.WriteLine($"Valid Select: {@event.IsActionPressed(inputType)}");
             //Debug.WriteLine($"{inputType}: {@event.IsActionPressed(inputType)}");
         }
     }
-
-    public void RegisterPlayer(int device, Player player) {
-        playerRegistry[device] = player;
+    private int GetPlayerIndex(int device, bool sharedPlayer) {
+        return device*2 + (sharedPlayer?1: 0);
+    }
+    public void RegisterPlayer(int device, bool sharedPlayer, Player player) {
+        playerRegistry[GetPlayerIndex(device, sharedPlayer)] = player;
     }
 
     public Player[] GetPlayers() {

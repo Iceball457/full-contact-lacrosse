@@ -4,6 +4,7 @@ using Godot;
 
 public partial class LocalControllerSetup : Node2D {
     // Called when the node enters the scene tree for the first time.
+    // TODO: Bundle the index of the device with whether or not it's shared "struct(int, bool)"
     List<int> knownControllerIndices = new();
     [Export] ControllerIndicator[] indicators;
     public override void _Ready() {

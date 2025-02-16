@@ -95,6 +95,7 @@ public static class GameManager {
         foreach (PlayerRecord playerRecord in playerRegistry) {
             Player newPlayer = PLAYER_PREFAB.Instantiate<Player>();
             newPlayer.DeviceIdx = playerRecord.deviceIdx;
+            newPlayer.IsShared = playerRecord.isShared;
             newPlayer.Location = Stadium.GetSpawn(playerRecord.team1, playerRecord.team1 ? team1Count++ : team2Count++, PlayersOnTeam(playerRecord.team1));
             GD.Print($"Index: {playerRecord.deviceIdx}\nRole {playerRecord.role}");
             newPlayer.SetRole(playerRecord.role);
