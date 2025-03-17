@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cyftutt3ypydp"]
 
-[ext_resource type="Script" path="res://Wall.cs" id="1_gmktk"]
+[ext_resource type="Script" uid="uid://dyt78nkr0pico" path="res://Wall.cs" id="1_gmktk"]
 
 [node name="Wall" type="Node2D"]
 z_index = 3

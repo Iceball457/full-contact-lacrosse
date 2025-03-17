@@ -13,7 +13,7 @@ config_version=5
 config/name="Full Contact Lacrosse"
 config/version="0.0.2"
 run/main_scene="res://Menu.tscn"
-config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://runner.png"
 
 [display]

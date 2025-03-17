@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://r2wal1xnhtx0"]
 
-[ext_resource type="Script" path="res://RootFinder.cs" id="1_ilcan"]
-[ext_resource type="Script" path="res://LocalControllerSetup.cs" id="1_ok1l4"]
+[ext_resource type="Script" uid="uid://byvatcoubng6c" path="res://RootFinder.cs" id="1_ilcan"]
+[ext_resource type="Script" uid="uid://p6o44b7ylpvm" path="res://LocalControllerSetup.cs" id="1_ok1l4"]
 [ext_resource type="Texture2D" uid="uid://bil3vaxkbk3c0" path="res://bg.png" id="2_a2g3e"]
-[ext_resource type="Script" path="res://TeamVertexColor.cs" id="3_l3ih0"]
+[ext_resource type="Script" uid="uid://b4ctslrjehoby" path="res://TeamVertexColor.cs" id="3_l3ih0"]
 [ext_resource type="PackedScene" uid="uid://dxlafprw88lf1" path="res://controller_indicator.tscn" id="4_a8ts0"]
 
 [node name="Local Controller Setup" type="Node2D" node_paths=PackedStringArray("indicators")]

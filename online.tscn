@@ -5,6 +5,6 @@
 [node name="Level" type="Node" parent="."]
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Stadium.tscn")
+_spawnable_scenes = PackedStringArray("uid://be70jah2uh6eh")
 spawn_path = NodePath("../Level")
 spawn_limit = 1

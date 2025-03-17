@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3850c80bs365"]
 
-[ext_resource type="Script" path="res://Puck.cs" id="1_xwgv8"]
+[ext_resource type="Script" uid="uid://2ujt2ygypkag" path="res://Puck.cs" id="1_xwgv8"]
 
 [node name="Puck" type="Node2D"]
 z_index = 4

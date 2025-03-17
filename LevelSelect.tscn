@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8mfhg81wnana"]
 
-[ext_resource type="Script" path="res://RootFinder.cs" id="1_xldx8"]
-[ext_resource type="Script" path="res://LevelSelect.cs" id="2_xhudo"]
+[ext_resource type="Script" uid="uid://byvatcoubng6c" path="res://RootFinder.cs" id="1_xldx8"]
+[ext_resource type="Script" uid="uid://ccviuylgjckgr" path="res://LevelSelect.cs" id="2_xhudo"]
 [ext_resource type="Texture2D" uid="uid://j3b5c1wq1r5e" path="res://wall.png" id="3_jsnjv"]
 [ext_resource type="Texture2D" uid="uid://07j4cyssdcfg" path="res://net.png" id="4_pyefl"]
 [ext_resource type="Texture2D" uid="uid://cd1nlnlrcmlx8" path="res://gate.png" id="5_247gm"]
