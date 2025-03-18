@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cl44qn2jfx85h"]
+[gd_scene load_steps=0 format=3 uid="uid://cl44qn2jfx85h"]
 
 [node name="Graphics" type="Node2D"]
 position = Vector2(8, 8)

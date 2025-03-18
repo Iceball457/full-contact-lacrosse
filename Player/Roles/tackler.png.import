@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnd7gi8q8r3df"
-path="res://.godot/imported/thrower.png-d8a805b280b680bd3fcf304061135c5c.ctex"
+uid="uid://b5dtirrh5e15w"
+path="res://.godot/imported/tackler.png-9f8792f318874a223b62782be056d495.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://thrower.png"
-dest_files=["res://.godot/imported/thrower.png-d8a805b280b680bd3fcf304061135c5c.ctex"]
+source_file="res://Player/Roles/tackler.png"
+dest_files=["res://.godot/imported/tackler.png-9f8792f318874a223b62782be056d495.ctex"]
 
 [params]
 

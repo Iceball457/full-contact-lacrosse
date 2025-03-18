@@ -1,12 +1,16 @@
-using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Godot;
 
 public partial class Stadium : Node2D {
+
+    public const int SCREEN_WIDTH = 512;
+    public const int SCREEN_HEIGHT = 288;
+
     [Export] Texture2D[] wallTex = new Texture2D[1];
     static StadiumData data;
 
@@ -21,14 +25,14 @@ public partial class Stadium : Node2D {
         data = stadium;
         Puck newPuck = puckPrefab.Instantiate<Puck>();
         newPuck.Location = data.puckSpawn;
-        GetTree().Root.CallDeferred("add_child", new Variant[] { newPuck });
+        GetTree().Root.CallDeferred("add_child", [newPuck]);
         Debug.WriteLine($"Scoring Zones in stadium: {data.scoringZones.Count}");
         foreach (ScoreZoneData zoneData in data.scoringZones) {
             ScoreZone newScoreZone = scoreZonePrefab.Instantiate<ScoreZone>();
             newScoreZone.Transform = new(0, zoneData.location * 16);
             newScoreZone.Team1 = zoneData.isTeam1;
             newScoreZone.Modulate = ColorManager.GetTeamColor(newScoreZone.Team1 ? 0 : 1);
-            GetTree().Root.CallDeferred("add_child", new Variant[] { newScoreZone });
+            GetTree().Root.CallDeferred("add_child", [newScoreZone]);
         }
         QueueRedraw();
     }
@@ -38,6 +42,9 @@ public partial class Stadium : Node2D {
     }
     public static StadiumData.WallType GetWall(Vector2I location) {
         return data.GetWall(location.X, location.Y);
+    }
+    public static bool IsSolid(StadiumData.WallType wallType) {
+        return wallType == StadiumData.WallType.Wall || wallType == StadiumData.WallType.Mesh;
     }
     public static Vector2 GetSpawn(bool team1, int indexOnTeam, int playersOnTeam) {
         int spawnIndex = 0;

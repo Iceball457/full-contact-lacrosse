@@ -1,0 +1,95 @@
+public override void _PhysicsProcess(double delta) {
+    // Input
+    Intention input = controller.GetIntention();
+
+     // Cooldowns
+    if (GrabLockout > 0) {
+        GrabLockout -= (float)delta;
+    } else {
+        GrabLockout = 0;
+    }
+    if (TackleLockout > 0) {
+        TackleLockout -= (float)delta;
+    } else {
+        TackleLockout = 0;
+    }
+    if (Stunned > GrabLockout) {
+        GrabLockout = Stunned;
+    }
+
+     if (Stunned > 0 && Holding != null) {
+        //Debug.WriteLine("Hey!");
+        Holding.Drop(new Vector2(rand.Next(), rand.Next()).Normalized());
+    }
+
+     if (Tackling <= 0 && Stunned <= 0) {
+        // Movement
+        Location += direction * moveSpeed * (float)delta * Encumberance();
+    } else {
+        Location += forcedMovement * (float)delta * Encumberance();
+        Tackling -= (float)delta;
+        Stunned -= (float)delta;
+    }
+    if (Location.X < -8) {
+        Location += Vector2.Right * SCREEN_WIDTH;
+        Holding?.ShiftTrail(Vector2.Right * SCREEN_WIDTH);
+    } else if (Location.X >= SCREEN_WIDTH - 8) {
+        Location += Vector2.Left * SCREEN_WIDTH;
+        Holding?.ShiftTrail(Vector2.Left * SCREEN_WIDTH);
+    }
+    if (Location.Y < -8) {
+        Location += Vector2.Down * SCREEN_HEIGHT;
+        Holding?.ShiftTrail(Vector2.Down * SCREEN_HEIGHT);
+    } else if (Location.Y >= SCREEN_HEIGHT - 8) {
+        Location += Vector2.Up * SCREEN_HEIGHT;
+        Holding?.ShiftTrail(Vector2.Up * SCREEN_HEIGHT);
+    }
+
+     //Render
+    if (Stunned > 0) {
+        shakeTimer -= (float)delta;
+        if (shakeTimer < 0) {
+            //Debug.WriteLine("In");
+            if (stunShake) {
+                Location += Vector2.Right * 2;
+            } else {
+                Location += Vector2.Left * 2;
+            }
+            stunShake = !stunShake;
+            shakeTimer = 1 / 20f;
+
+         }
+    }
+
+
+
+     if (Holding != null) GrabLockout = 0.5f;
+
+     if (inputDelta["Select"] > 0) {
+        charge = 1f;
+    } else if (inputDelta["Select"] < 0) {
+        // Throw the puck!
+        if (Holding != null) {
+            Vector2 throwVelocity = throwDirection * throwForce * charge;
+            Holding.Drop(throwVelocity);
+            GameManager.PlaySound(pass);
+            //Debug.WriteLine($"Throw @ {charge}. Distance @ 60fps: {Puck.CalculateDisplacement(throwVelocity.Length(), 1f / 60)}, Distance @ 240fps: {Puck.CalculateDisplacement(throwVelocity.Length(), 1f / 240)}");
+        }
+    }
+    if (inputs["Select"] > 0 && Holding != null) {
+        charge += (float)delta * chargeRate;
+        charge = MathF.Min(charge, chargeCap);
+        //Debug.WriteLine($"Charge: {charge}");
+    } else {
+        charge = 1f;
+    }
+    if (inputDelta["Cancel"] > 0 && TackleLockout <= 0 && Stunned <= 0 && Holding == null) {
+        // Tackle
+        if (direction.Length() > 0.5f) {
+            GameManager.PlaySound(dash);
+            forcedMovement = direction.Normalized() * tackleSpeed;
+            Tackling = tackleDuration;
+            TackleLockout = 1.1f;
+        }
+    }
+}

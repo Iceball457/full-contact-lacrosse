@@ -1,9 +1,10 @@
-using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using FullContactLacrosse.Player;
+using Godot;
 
 public partial class Puck : Node2D {
 
@@ -11,7 +12,7 @@ public partial class Puck : Node2D {
     public static Puck singleton;
     const int SCREEN_WIDTH = 512;
     const int SCREEN_HEIGHT = 288;
-    private const float FAST_DRAG = 1.5f;
+    private const float FAST_DRAG = 1f;
     private const float SLOW_DRAG = 2.5f;
     AudioStream bounce = GD.Load<AudioStream>("res://bounce.wav");
     AudioStream catchPuck = GD.Load<AudioStream>("res://catch.wav");
@@ -21,7 +22,7 @@ public partial class Puck : Node2D {
 
     public Player Holder { get; private set; }
 
-    public Vector2 location = new Vector2(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+    public Vector2 location = new(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 
     public Vector2 Location { get => GetLocation(); set => SetLocation(value); }
 
@@ -44,7 +45,7 @@ public partial class Puck : Node2D {
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta) {
+    public override void _PhysicsProcess(double delta) {
         Vector2I cell = Stadium.GetCell(location);
 
         if (puckDropTimer > 0) {
@@ -81,24 +82,6 @@ public partial class Puck : Node2D {
                 case StadiumData.WallType.Gate:
                     CollideWithWall(wallCell);
                     break;
-            }
-        }
-
-        // Player Collision
-        if (Holder == null) {
-            foreach (Player player in GameInput.SINGLETON.GetPlayers()) {
-                if (player == null) continue;
-                for (int x = -SCREEN_WIDTH; x <= SCREEN_WIDTH; x += SCREEN_WIDTH) {
-                    for (int y = -SCREEN_HEIGHT; y <= SCREEN_HEIGHT; y += SCREEN_HEIGHT) {
-                        int xOffset = (int)(player.Location.X - Location.X + x);
-                        int yOffset = (int)(player.Location.Y - Location.Y + y);
-                        //Debug.WriteLine($"{nearbyWalls.Count}).");
-                        if (MathF.Abs(xOffset) < 8 && MathF.Abs(yOffset) < 8 && player.GrabLockout <= 0 && player.Stunned <= 0) {
-                            GameManager.PlaySound(catchPuck);
-                            PickUp(player);
-                        }
-                    }
-                }
             }
         }
 
@@ -140,13 +123,14 @@ public partial class Puck : Node2D {
     }
 
     public void PickUp(Player player) {
-        if (player.GrabLockout > 0 || player.Stunned > 0) return;
-        if (Holder != null) Holder.Holding = null;
-        player.Holding = this;
+        if (puckDropTimer > 0) return;
+        if (player.Throwing || player.Stunned) return;
+        if (Holder != null) Holder.HeldPuck = null;
+        player.HeldPuck = this;
         Holder = player;
     }
     public void Drop(Vector2 velocity) {
-        Holder.Holding = null;
+        Holder.HeldPuck = null;
         Holder = null;
         Velocity = velocity;
     }
@@ -159,6 +143,7 @@ public partial class Puck : Node2D {
     }
 
     public static IEnumerable<Vector2> CalculateDisplacement(Vector2 initialPosition, Vector2 initialVelocity, float delta) {
+        //GD.Print("Calculating Displacement");
         Vector2 landingPosition = initialPosition;
         Vector2 velocity = initialVelocity;
 
@@ -194,7 +179,7 @@ public partial class Puck : Node2D {
                 }
             }
         }
-
+        //GD.Print($"Final landing position {landingPosition}");
         yield return landingPosition;
 
         void SimulateCollideWithWall(Vector2I wallCell) {

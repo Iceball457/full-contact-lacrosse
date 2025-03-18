@@ -1,17 +1,16 @@
-using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Xml;
+using Godot;
 
 public partial class Wall : Node2D {
-    static Dictionary<Vector2I, Wall> wallRegistry = new();
+    static Dictionary<Vector2I, Wall> wallRegistry = [];
     const int SCREEN_WIDTH = 512;
     const int SCREEN_HEIGHT = 288;
 
-    public Wall() {
-    }
+    public Wall() { }
 
     public override void _Ready() {
         //Debug.WriteLine($"{Name}: ({Transform.Origin.X}, {Transform.Origin.Y})");

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi1qq7nyxwe33"]
+
+[ext_resource type="Script" uid="uid://d117yuj4yfhjw" path="res://Player/Player.cs" id="1_eiqgp"]
+[ext_resource type="Script" uid="uid://dk8t1cxg67si3" path="res://Player/PlayerStateMachine.cs" id="3_e80uo"]
+[ext_resource type="Script" uid="uid://codxuaxb4xtsj" path="res://Player/States/Normal.cs" id="4_cxr5p"]
+[ext_resource type="Script" uid="uid://dxp4upbi3ls8j" path="res://Player/PlayerVisual.cs" id="4_gwnis"]
+[ext_resource type="Script" uid="uid://cp6np1x5ljde2" path="res://Player/States/Tackle.cs" id="4_k53q1"]
+[ext_resource type="Script" uid="uid://cmavv412mjmow" path="res://Player/States/Strafe.cs" id="5_fhl08"]
+[ext_resource type="Script" uid="uid://e554em5pqocf" path="res://Player/States/Stun.cs" id="6_vtle1"]
+
+[node name="Player" type="Node" node_paths=PackedStringArray("audio", "Visual", "Machine")]
+script = ExtResource("1_eiqgp")
+audio = NodePath("AudioStreamPlayer")
+Visual = NodePath("Visual")
+Machine = NodePath("State Machine")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("CurrentState")]
+script = ExtResource("3_e80uo")
+CurrentState = NodePath("Normal")
+
+[node name="Normal" type="Node" parent="State Machine"]
+script = ExtResource("4_cxr5p")
+
+[node name="Tackle" type="Node" parent="State Machine"]
+script = ExtResource("4_k53q1")
+
+[node name="Strafe" type="Node" parent="State Machine"]
+script = ExtResource("5_fhl08")
+grabLockout = 0.15
+
+[node name="Stun" type="Node" parent="State Machine"]
+script = ExtResource("6_vtle1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Visual" type="Node2D" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("4_gwnis")
+parent = NodePath("..")

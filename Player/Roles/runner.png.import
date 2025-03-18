@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://br5gmolyyd0id"
-path="res://.godot/imported/runner.png-b9598e96dc360f2bd933ff3faf43fc03.ctex"
+path="res://.godot/imported/runner.png-dec8eba649991a494bf45af6f002cf2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://runner.png"
-dest_files=["res://.godot/imported/runner.png-b9598e96dc360f2bd933ff3faf43fc03.ctex"]
+source_file="res://Player/Roles/runner.png"
+dest_files=["res://.godot/imported/runner.png-dec8eba649991a494bf45af6f002cf2b.ctex"]
 
 [params]
 

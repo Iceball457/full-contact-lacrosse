@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cehq142lguyfg" path="res://controller.png" id="1_5w3vb"]
 [ext_resource type="Script" uid="uid://b606hklfpjjvc" path="res://ControllerIndicator.cs" id="1_nx14k"]
 [ext_resource type="Texture2D" uid="uid://brvr4og33x31n" path="res://numbers.png" id="2_hggip"]
-[ext_resource type="Texture2D" uid="uid://b5dtirrh5e15w" path="res://tackler.png" id="4_fh0fk"]
-[ext_resource type="Texture2D" uid="uid://br5gmolyyd0id" path="res://runner.png" id="5_0efy5"]
-[ext_resource type="Texture2D" uid="uid://dnd7gi8q8r3df" path="res://thrower.png" id="6_jp66x"]
+[ext_resource type="Texture2D" uid="uid://b5dtirrh5e15w" path="res://Player/Roles/tackler.png" id="4_fh0fk"]
+[ext_resource type="Texture2D" uid="uid://br5gmolyyd0id" path="res://Player/Roles/runner.png" id="5_0efy5"]
+[ext_resource type="Texture2D" uid="uid://dnd7gi8q8r3df" path="res://Player/Roles/thrower.png" id="6_jp66x"]
 [ext_resource type="PackedScene" uid="uid://ce24xxb8je1hp" path="res://bouncer.tscn" id="7_u6pp1"]
 
 [node name="Controller Indicator" type="Node2D" node_paths=PackedStringArray("number", "offset", "roleSelector", "readyBanner", "roleSelectionGraphics", "bouncers")]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerRole" load_steps=3 format=3 uid="uid://dhcljkxhadsb2"]
+
+[ext_resource type="Texture2D" uid="uid://b5dtirrh5e15w" path="res://Player/Roles/tackler.png" id="1_6as4x"]
+[ext_resource type="Script" uid="uid://cbh4v6enqlwlp" path="res://Player/Roles/PlayerRole.cs" id="1_w6l5g"]
+
+[resource]
+script = ExtResource("1_w6l5g")
+MoveSpeed = 120.0
+ThrowForce = 200.0
+ChargeRate = 0.5
+ChargeCap = 2.0
+TackleSpeed = 150.0
+TackleDuration = 0.75
+StunDuration = 0.8
+Texture = ExtResource("1_6as4x")
+metadata/_custom_type_script = "uid://cbh4v6enqlwlp"

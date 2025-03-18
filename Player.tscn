@@ -1,12 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi1qq7nyxwe33"]
+[gd_scene load_steps=5 format=3 uid="uid://c13pu68m0f16l"]
 
-[ext_resource type="Script" uid="uid://d117yuj4yfhjw" path="res://Player.cs" id="1_eiqgp"]
-[ext_resource type="Texture2D" uid="uid://b5dtirrh5e15w" path="res://tackler.png" id="2_w75p2"]
+[ext_resource type="Script" uid="uid://d117yuj4yfhjw" path="res://Player/Player.cs" id="1_eiqgp"]
+[ext_resource type="Script" uid="uid://dk8t1cxg67si3" path="res://Player/PlayerStateMachine.cs" id="3_e80uo"]
+[ext_resource type="Script" uid="uid://codxuaxb4xtsj" path="res://Player/States/Normal.cs" id="4_cxr5p"]
+[ext_resource type="Script" uid="uid://dxp4upbi3ls8j" path="res://Player/PlayerVisual.cs" id="4_e80uo"]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("audio")]
-z_index = 1
+[node name="Player" type="Node" node_paths=PackedStringArray("audio", "Visual", "Machine")]
 script = ExtResource("1_eiqgp")
-bodyTexture = ExtResource("2_w75p2")
 audio = NodePath("AudioStreamPlayer")
+Visual = NodePath("Visual")
+Machine = NodePath("State Machine")
+
+[node name="Input" type="Node" parent="."]
+
+[node name="State Machine" type="Node" parent="."]
+script = ExtResource("3_e80uo")
+
+[node name="Normal" type="Node" parent="State Machine"]
+script = ExtResource("4_cxr5p")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Visual" type="Node2D" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("4_e80uo")
+parent = NodePath("..")

@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using FullContactLacrosse.Player;
 using Godot;
 
 public partial class ControllerIndicator : Node2D {
@@ -13,7 +14,7 @@ public partial class ControllerIndicator : Node2D {
     [Export] Node2D[] roleSelectionGraphics;
     [Export] Node2D[] bouncers;
 
-    PlayerRecord registeredPlayer;
+    PlayerRecord? registeredPlayer;
 
     bool rightDown, leftDown;
     bool oldRight, oldLeft;
@@ -200,6 +201,8 @@ public partial class ControllerIndicator : Node2D {
         state = ReadyState.SelectingTeam;
     }
 
+    string[] vanillaRoleNames = ["runner", "thrower", "tackler"];
+
     void SelectRole() {
         // Mark player as ready! Banner in bg?
         readyBanner.Visible = true;
@@ -209,8 +212,8 @@ public partial class ControllerIndicator : Node2D {
         }
         //roleSelector.Visible = false;
 
-        registeredPlayer = new(deviceIdx, team == -1, (PlayerRecord.Role)roleSelection);
-        GameManager.RegisterPlayer(registeredPlayer);
+        registeredPlayer = new(deviceIdx, team == -1, vanillaRoleNames[roleSelection]);
+        GameManager.RegisterPlayer(registeredPlayer.Value);
 
         state = ReadyState.Ready;
 
@@ -225,7 +228,7 @@ public partial class ControllerIndicator : Node2D {
         }
         //roleSelector.Visible = true;
 
-        GameManager.RemovePlayer(registeredPlayer);
+        GameManager.RemovePlayer(registeredPlayer.Value);
         registeredPlayer = null;
 
         state = ReadyState.SelectingRole;

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
+using FullContactLacrosse.Player;
 using Godot;
 
 public static class GameManager {
@@ -18,7 +19,7 @@ public static class GameManager {
     static int PlayersOnTeam(bool team1) {
         int output = 0;
         foreach (PlayerRecord playerRecord in playerRegistry) {
-            if (playerRecord.team1 == team1) output++;
+            if (playerRecord.Team1 == team1) output++;
         }
         return output;
     }
@@ -34,20 +35,19 @@ public static class GameManager {
         playerRegistry.Clear();
         ActiveControllers = 0;
     }
-    static readonly PackedScene PLAYER_PREFAB = GD.Load<PackedScene>("res://Player.tscn");
     static readonly PackedScene ONE_SHOT_AUDIO = GD.Load<PackedScene>("res://PlayOneShot.tscn");
 
     static readonly PackedScene MAIN_MENU = GD.Load<PackedScene>("res://Menu.tscn");
     static readonly PackedScene LEVEL_SELECT = GD.Load<PackedScene>("res://LevelSelect.tscn");
     static readonly PackedScene PLAYER_SELECT = GD.Load<PackedScene>("res://LocalControllerSetup.tscn");
     static readonly PackedScene STADIUM = GD.Load<PackedScene>("res://Stadium.tscn");
-    static List<ScoreZone> scoreZones = new();
+    static List<ScoreZone> scoreZones = [];
 
     public static void RegisterZone(ScoreZone zone) {
         scoreZones.Add(zone);
     }
     public static void ClearZones() {
-        scoreZones = new();
+        scoreZones = [];
     }
 
     public static List<ScoreZone> GetZones() {
@@ -65,10 +65,9 @@ public static class GameManager {
         int team1Players = 0;
         int team2Players = 0;
         foreach (PlayerRecord player in playerRegistry) {
-            if (player.team1) team1Players++;
+            if (player.Team1) team1Players++;
             else team2Players++;
         }
-        GD.Print($"Registered: {playerRegistry.Count}\nActive Controllers: {ActiveControllers}\nTeam 1: {team1Players}\nTeam 2: {team2Players}\n");
         if (playerRegistry.Count == ActiveControllers && team1Players > 0 && team2Players > 0) {
             // Start the game!
             StartGame();
@@ -93,12 +92,9 @@ public static class GameManager {
         int team1Count = 0;
         int team2Count = 0;
         foreach (PlayerRecord playerRecord in playerRegistry) {
-            Player newPlayer = PLAYER_PREFAB.Instantiate<Player>();
-            newPlayer.DeviceIdx = playerRecord.deviceIdx;
-            newPlayer.Location = Stadium.GetSpawn(playerRecord.team1, playerRecord.team1 ? team1Count++ : team2Count++, PlayersOnTeam(playerRecord.team1));
-            GD.Print($"Index: {playerRecord.deviceIdx}\nRole {playerRecord.role}");
-            newPlayer.SetRole(playerRecord.role);
-            newPlayer.Modulate = ColorManager.GetTeamColor(playerRecord.team1 ? 0 : 1);
+            Player newPlayer = playerRecord.GenerateLocalPlayerNode();
+            newPlayer.Location = Stadium.GetSpawn(playerRecord.Team1, playerRecord.Team1 ? team1Count++ : team2Count++, PlayersOnTeam(playerRecord.Team1));
+
             Tree.Root.AddChild(newPlayer);
         }
         // Countdown?

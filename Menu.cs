@@ -35,7 +35,6 @@ public partial class Menu : Node2D {
                     break;
             }
         }
-
     }
     static int Modulo(int a, int b) { return (a % b + b) % b; }
 }

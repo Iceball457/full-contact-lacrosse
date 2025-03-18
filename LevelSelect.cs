@@ -1,8 +1,8 @@
-using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using Godot;
 
 public partial class LevelSelect : Node {
     const int SCREEN_WIDTH = 512;
@@ -48,7 +48,7 @@ public partial class LevelSelect : Node {
     }
 
     private ImageTexture GenerateTexture(StadiumData stadium) {
-        Image output = Image.Create(SCREEN_WIDTH, SCREEN_HEIGHT, false, Image.Format.Rgba8);
+        Image output = Image.CreateEmpty(SCREEN_WIDTH, SCREEN_HEIGHT, false, Image.Format.Rgba8);
         foreach (ScoreZoneData zone in stadium.scoringZones) {
             output.FillRect(new(new(Mathf.RoundToInt(zone.location.X * 16), Mathf.RoundToInt(zone.location.Y * 16)), new(32, 32)), zone.isTeam1 ? ColorManager.GetTeamColor(0) : ColorManager.GetTeamColor(1));
         }

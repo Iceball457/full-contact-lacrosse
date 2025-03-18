@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerRole" load_steps=3 format=3 uid="uid://tyqa05oxwnfa"]
+
+[ext_resource type="Texture2D" uid="uid://dnd7gi8q8r3df" path="res://Player/Roles/thrower.png" id="1_m5uak"]
+[ext_resource type="Script" uid="uid://cbh4v6enqlwlp" path="res://Player/Roles/PlayerRole.cs" id="1_xca3v"]
+
+[resource]
+script = ExtResource("1_xca3v")
+MoveSpeed = 120.0
+ThrowForce = 200.0
+ChargeRate = 0.5
+ChargeCap = 2.0
+TackleSpeed = 150.0
+TackleDuration = 0.75
+StunDuration = 0.8
+Texture = ExtResource("1_m5uak")
+metadata/_custom_type_script = "uid://cbh4v6enqlwlp"
